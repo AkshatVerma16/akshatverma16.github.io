@@ -170,8 +170,8 @@
                     <div class="project-image">
                         <img src="images/project3.jpg" alt="Project 3">
                         <div class="project-overlay">
-                            <a href="https://github.com/AkshatVerma16/XENO--Assignment" class="project-link"><i class="fas fa-link"></i></a>
-                            <a href="https://xeno-project-navy.vercel.app/" class="project-github"><i class="fab fa-github"></i></a>
+                            <a href="https://xeno-project-navy.vercel.app/"class="project-link"><i class="fas fa-link"></i></a>
+                            <a href="https://github.com/AkshatVerma16/XENO--Assignment" class="project-github"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                     <h3>Customer Relationship Management Dashboard</h3>
@@ -250,8 +250,8 @@
         </div>
       </div>
 
-      <div class="contact-form">
-        <form id="contactForm">
+      <!-- <div class="contact-form"> -->
+        <form class="contact-form" id="contactForm">
           <div class="form-group">
             <input type="text" name="name" placeholder="Your Name" required>
           </div>
@@ -263,38 +263,31 @@
           </div>
           <button type="submit" class="btn primary">Send Message</button>
         </form>
-      </div>
+      <!-- </div> -->
     </div>
   </div>
 </section>
 
-<!-- JavaScript to send form data to Google Sheets -->
-<script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbw9MTlTPfBmt08-F9IR75Y45zItQjODoztcS6XiPVrZHHqxUmhwiD6B87ptNK5K78ZA/exec';
-  const form = document.getElementById('contactForm');
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    fetch(scriptURL, {
-      method: 'POST',
-      body: new FormData(form)
-    })
-    .then(response => {
-      if (response.ok) {
-        alert("✅ Message sent successfully!");
-        form.reset();
-      } else {
-        response.text().then(text => {
-          console.error("Server Error:", text);
-          alert("❌ Server Error: " + text);
-        });
-      }
-    })
-    .catch(error => {
-      console.error("Fetch Error:", error.message);
-      alert("❌ Fetch Error: " + error.message);
+
+<!-- JavaScript to send form data to Google Sheets -->
+ <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+    // Initialize EmailJS with your public key
+    emailjs.init("ZV-uuZy1Ee5tI1Gdg"); // e.g., "DxuHbS8yS9V9hxxxx"
+
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        emailjs.sendForm("service_32xd0tv", "template_2oju22a", this)
+            .then(() => {
+                // alert("Message sent successfully!");
+                document.getElementById("contactForm").reset();
+            }, (error) => {
+                alert("Failed to send message. " + JSON.stringify(error));
+            });
     });
-  });
 </script>
 
 
