@@ -70,7 +70,7 @@ If you want to clone and run this project on your local machine:
 I am open to freelance work and full-time opportunities. Feel free to reach out!
 
 * **GitHub:** [akshatverma16](https://github.com/akshatverma16)
-* **LinkedIn:** [](https://www.linkedin.com/in/akshatverma16/)
+* **LinkedIn:** [akshatVerma](https://www.linkedin.com/in/akshatverma16/)
 * **Email:** [akshatvision7@gmail.com]
 
 ---
