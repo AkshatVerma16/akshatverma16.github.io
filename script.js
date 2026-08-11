@@ -57,7 +57,7 @@ document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
 });
 
-// Add fade-in class to CSS
+// Add fade-in class to CSS dynamically
 const style = document.createElement('style');
 style.textContent = `
     .fade-in {
@@ -96,7 +96,6 @@ window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
         if (window.scrollY >= sectionTop - 200) {
             current = section.getAttribute('id');
         }
@@ -109,26 +108,6 @@ window.addEventListener('scroll', () => {
         }
     });
 });
-
-// Contact Form Submission
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-        
-        // Here you would typically send the form data to a server
-        // For now, we'll just show a success message
-        alert(`Thank you for your message, ${name}! I'll get back to you soon.`);
-        
-        // Reset form
-        contactForm.reset();
-    });
-}
 
 // Skill Progress Animation
 const skillProgressBars = document.querySelectorAll('.progress-bar');
@@ -193,4 +172,4 @@ scrollToTopBtn.addEventListener('click', () => {
         top: 0,
         behavior: 'smooth'
     });
-}); 
+});
